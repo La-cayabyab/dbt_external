@@ -20,5 +20,5 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   dbt_external_demo:
-    example:
+    base:
       +materialized: table

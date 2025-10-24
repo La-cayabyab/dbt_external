@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: tpch
+    description: "TPC-H sample data from Snowflake"
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF1
+    tables:
+      - name: customer
+        description: "Customer dimension table"
+      - name: orders
+        description: "Orders fact table"
+      - name: lineitem
+        description: "Line item details"
+      - name: part
+        description: "Parts dimension"
+      - name: supplier
+        description: "Suppliers dimension"
+
+models:
+  - name: customers
+    description: "Cleaned customer data"
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier"
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: "Customer name"
+
+  - name: orders
+    description: "Cleaned orders data"
+    columns:
+      - name: order_id
+        description: "Unique order identifier"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Customer who placed the order"
