@@ -1,15 +1,30 @@
-Welcome to your new dbt project!
 
-### Using the starter project
+## Objective
 
-Try running the following commands:
-- dbt run
-- dbt test
+1. Model my preferred data model assets architecture focused on legibility, traceability, and reusability
+
+2. Illustrate how one could integrate dbt with other data assets e.g.:
+    * Data warehouse
+    * Reverse ETL platform
+    * IaC tool
 
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](https://getdbt.com/community) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+## Method
+
+### Architecture
+Create four layers for the data models:
+* base
+* staging
+* intermediate
+* exposure
+    * entity
+    * reverse_etl
+
+
+### System Integrations
+Use dbt to model data in conjunction with data assets provisioned via Terraform:
+* Data sources: 
+    * Snowflake (users, permissions, sample datasets, etc.)
+    * Local postgresql db
+* Fivetran
+* BI/Data Viz platform
